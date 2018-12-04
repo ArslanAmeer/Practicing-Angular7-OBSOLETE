@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [];
+  serverElements = [{ type: 'server', name: 'test name', content: 'test content' }];
 
   onServerAdded(serverData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
@@ -16,14 +16,19 @@ export class AppComponent {
     });
   }
 
-  onBlueprintAdded(blueprintData: {
-    serverName: string;
-    serverContent: string;
-  }) {
+  onBlueprintAdded(blueprintData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
       type: 'blueprint',
       name: blueprintData.serverName,
       content: blueprintData.serverContent
     });
+  }
+
+  onFirstElementChange() {
+    this.serverElements[0].name = 'Changed!';
+  }
+
+  destroyFirstComponent() {
+    this.serverElements.splice(0, 1);
   }
 }
