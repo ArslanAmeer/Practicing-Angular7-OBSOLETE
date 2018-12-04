@@ -6,6 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./server-element.component.css']
 })
 export class ServerElementComponent implements OnInit {
+  // this is Custom type... -- it is actually a type defination so that element property (typr can onnly have these elements)
+  // whereas input is custom property binding decorater
+  // tslint:disable-next-line:no-input-rename
   @Input('srvElement') element: { type: string; name: string; content: string };
   constructor() {}
 
