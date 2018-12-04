@@ -12,7 +12,8 @@ import {
   AfterViewChecked,
   OnDestroy,
   ViewChild,
-  ElementRef
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -37,6 +38,7 @@ export class ServerElementComponent
   @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraphText: ElementRef;
 
   constructor() {
     console.log('constructor Called!');
@@ -49,8 +51,10 @@ export class ServerElementComponent
 
   ngOnInit() {
     console.log('ngonInit Called!');
-    // You CANNOT have the template content after view init
+    // You CANNOT have the template content before view init
     console.log('Text Content: ' + this.header.nativeElement.textContent);
+    // You CANNOT have content data from projected content before Content Init
+    console.log('Paragraph Content: ' + this.paragraphText.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -59,6 +63,8 @@ export class ServerElementComponent
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit Called!');
+    // You CAN have content data from projected content after Content Init
+    console.log('Paragraph Content: ' + this.paragraphText.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
