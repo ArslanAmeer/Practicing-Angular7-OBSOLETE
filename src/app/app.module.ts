@@ -8,6 +8,7 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import { PlaygroundComponent } from './playground/playground.component';
 import { BasicHighlightDirective } from './playground/basic-highlight/basic-highlight.directive';
 import { BetterHighlightDirective } from './playground/better-hightlight/better-highlight.directive';
+import { UnlessDirective } from './playground/unless.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BetterHighlightDirective } from './playground/better-hightlight/better-
     ServerElementComponent,
     PlaygroundComponent,
     BasicHighlightDirective,
-    BetterHighlightDirective
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
