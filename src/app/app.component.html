@@ -10,11 +10,15 @@
         [name]='serverElement.name'>
         <!-- this #contentParagraph is local reference for @ContentChild() in server component -->
         <p #contentParagraph>
-          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
-                  serverElement.content }}</strong>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
       </app-server-element>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-playground></app-playground>
     </div>
   </div>
 </div>

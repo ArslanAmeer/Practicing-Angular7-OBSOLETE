@@ -1,0 +1,9 @@
+<button class="btn btn-primary" (click)="isEven = !isEven"> Toggle between Even Odd</button>
+<ul class="list-group">
+  <div *ngIf="isEven">
+    <li class="list-group-item" *ngFor="let evenNumber of even">{{ evenNumber }}</li>
+  </div>
+  <div *ngIf="!isEven">
+    <li class="list-group-item" *ngFor="let oddNumber of odd">{{ oddNumber }}</li>
+  </div>
+</ul>
