@@ -8,5 +8,5 @@
       class="list-group-item" *ngFor="let oddNumber of odd">{{ oddNumber }}</li>
   </div>
   <p appBasicHighlight>Custom Directive</p>
-  <p appBetterHighlight>Custom Directive using Renderer</p>
+  <p [appBetterHighlight]="'yellow'" highlightColor="red">Custom Directive using Renderer</p>
 </ul>
