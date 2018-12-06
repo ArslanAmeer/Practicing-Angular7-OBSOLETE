@@ -10,6 +10,7 @@ export class PlaygroundComponent implements OnInit {
   even = [2, 4, 6];
   odd = [1, 3, 5];
   isEven = false;
+  value = 10;
   constructor() {}
 
   ngOnInit() {}

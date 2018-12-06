@@ -18,3 +18,9 @@
   <!-- CUstom Attribute Directive with Direct property Bindibng -->
   <p [appBetterHighlight]="'yellow'" highlightColor="red">Custom Directive using Renderer</p>
 </ul>
+<!-- Swith In Angular -->
+<span [ngSwitch]="value">
+  <p *ngSwitchCase="5"> the value is 5 </p>
+  <p *ngSwitchCase="10"> the value is 10 </p>
+  <p *ngSwitchDefault> the value is default </p>
+</span>
