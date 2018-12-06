@@ -7,6 +7,7 @@ import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { BasicHighlightDirective } from './playground/basic-highlight/basic-highlight.directive';
+import { BetterHighlightDirective } from './playground/better-hightlight/better-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BasicHighlightDirective } from './playground/basic-highlight/basic-high
     CockpitComponent,
     ServerElementComponent,
     PlaygroundComponent,
-    BasicHighlightDirective
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
