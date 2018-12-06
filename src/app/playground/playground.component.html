@@ -4,6 +4,8 @@
     <li class="list-group-item" *ngFor="let evenNumber of even">{{ evenNumber }}</li>
   </div>
   <div *ngIf="!isEven">
-    <li class="list-group-item" *ngFor="let oddNumber of odd">{{ oddNumber }}</li>
+    <li [ngClass]="{odd: odd % 2 !== 0}" [ngStyle]="{backgroundColor: odd % 2 !==0 ? 'yellow':'transparent'}"
+      class="list-group-item" *ngFor="let oddNumber of odd">{{ oddNumber }}</li>
   </div>
+  <p appBasicHighlight>Custom Directive</p>
 </ul>

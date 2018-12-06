@@ -6,9 +6,16 @@ import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { BasicHighlightDirective } from './playground/basic-highlight/basic-highlight.directive';
 
 @NgModule({
-  declarations: [AppComponent, CockpitComponent, ServerElementComponent, PlaygroundComponent],
+  declarations: [
+    AppComponent,
+    CockpitComponent,
+    ServerElementComponent,
+    PlaygroundComponent,
+    BasicHighlightDirective
+  ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
