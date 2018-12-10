@@ -5,8 +5,9 @@ import { AccountsService } from '../accounts.service';
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
-  styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService] // we will not add AccountsService in provider beacause we need same instance everywhere
+  styleUrls: ['./new-account.component.css']
+  // --- We have Declair this Service Provider globally in AppModule.ts file
+  // providers: [LoggingService] // we will not add AccountsService in provider beacause we need same instance everywhere
 })
 export class NewAccountComponent implements OnInit {
   @ViewChild('name') nameInput: ElementRef;
@@ -29,8 +30,8 @@ export class NewAccountComponent implements OnInit {
       this.nameInput.nativeElement.value,
       this.statusInput.nativeElement.value
     );
-    this.logg.logOnConsole(
-      `New Account: ${this.nameInput.nativeElement.value} : ${this.statusInput.nativeElement.value}`
-    );
+    // this.logg.logOnConsole(
+    //   `New Account: ${this.nameInput.nativeElement.value} : ${this.statusInput.nativeElement.value}`
+    // );
   }
 }

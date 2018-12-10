@@ -4,8 +4,9 @@ import { AccountsService } from './accounts.service';
 @Component({
   selector: 'app-playground',
   templateUrl: './playground.component.html',
-  styleUrls: ['./playground.component.css'],
-  providers: [AccountsService]
+  styleUrls: ['./playground.component.css']
+  // --- We have Declair this Service Provider globally in AppModule.ts file
+  // providers: [AccountsService]
 })
 export class PlaygroundComponent implements OnInit {
   sectionSelected = 'section2';

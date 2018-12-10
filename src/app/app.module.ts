@@ -11,6 +11,8 @@ import { BetterHighlightDirective } from './playground/better-hightlight/better-
 import { UnlessDirective } from './playground/unless.directive';
 import { AccountComponent } from './playground/account/account.component';
 import { NewAccountComponent } from './playground/new-account/new-account.component';
+import { AccountsService } from './playground/accounts.service';
+import { LoggingService } from './playground/logging.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { NewAccountComponent } from './playground/new-account/new-account.compon
     NewAccountComponent
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [AccountsService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
