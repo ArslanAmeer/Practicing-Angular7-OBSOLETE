@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountsService } from './accounts.service';
 
 @Component({
   selector: 'app-playground',
   templateUrl: './playground.component.html',
-  styleUrls: ['./playground.component.css']
+  styleUrls: ['./playground.component.css'],
+  providers: [AccountsService]
 })
 export class PlaygroundComponent implements OnInit {
   sectionSelected = 'section2';
@@ -14,19 +16,13 @@ export class PlaygroundComponent implements OnInit {
   value = 10;
   // Account & New Account logics (Service 7 dependency Injection Topic)
   accounts: { name: string; status: string }[] = [];
-  constructor() {}
+  constructor(private accountsService: AccountsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.accounts = this.accountsService.accounts;
+  }
 
   onSectionClick(section: string) {
     this.sectionSelected = section;
-  }
-
-  onNewAccountAdded(data: { name: string; status: string }) {
-    this.accounts.push(data);
-  }
-
-  onStatusChanged(data: { id: number; newStatus: string }) {
-    this.accounts[data.id].status = data.newStatus;
   }
 }
