@@ -1,24 +1,29 @@
 <div class="container">
-  <!-- serverCreated & bpCreated are Custom Event Bindings between cockpit & app components -->
-  <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
+  <div class="btn-toolbar">
+    <a href="#" type="button" class="btn btn-info" (click)="pageChange('page1')">Page 1</a>
+    <a href="#" type="button" class="btn btn-info" (click)="pageChange('page2')">Page 2</a>
+  </div>
   <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <button class='btn btn-primary' (click)="onFirstElementChange()">Change First Element</button>
-      <button class='btn btn-danger' (click)="destroyFirstComponent()">Destroy First Component</button>
-      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]='serverElement'
-        [name]='serverElement.name'>
-        <!-- this #contentParagraph is local reference for @ContentChild() in server component -->
-        <p #contentParagraph>
-          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
-          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
-        </p>
-      </app-server-element>
+  <div *ngIf="pageSelected === 'page1'">
+    <!-- serverCreated & bpCreated are Custom Event Bindings between cockpit & app components -->
+    <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class='btn btn-primary' (click)="onFirstElementChange()">Change First Element</button>
+        <button class='btn btn-danger' (click)="destroyFirstComponent()">Destroy First Component</button>
+        <app-server-element *ngFor="let serverElement of serverElements" [srvElement]='serverElement'
+          [name]='serverElement.name'>
+          <!-- this #contentParagraph is local reference for @ContentChild() in server component -->
+          <p #contentParagraph>
+            <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+            <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+          </p>
+        </app-server-element>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-playground></app-playground>
-    </div>
+  <div *ngIf="pageSelected === 'page2'">
+    <app-playground></app-playground>
   </div>
 </div>

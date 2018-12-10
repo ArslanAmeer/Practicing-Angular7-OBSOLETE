@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  pageSelected = 'page2';
   serverElements = [{ type: 'server', name: 'test name', content: 'test content' }];
 
   onServerAdded(serverData: { serverName: string; serverContent: string }) {
@@ -30,5 +31,9 @@ export class AppComponent {
 
   destroyFirstComponent() {
     this.serverElements.splice(0, 1);
+  }
+
+  pageChange(page: string) {
+    this.pageSelected = page;
   }
 }
