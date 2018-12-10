@@ -12,11 +12,23 @@ export class PlaygroundComponent implements OnInit {
   odd = [1, 3, 5];
   isEven = false;
   value = 10;
+  // Account & New Account logics (Service 7 dependency Injection Topic)
+  accounts: { name: string; status: string }[] = [];
   constructor() {}
 
   ngOnInit() {}
 
   onSectionClick(section: string) {
     this.sectionSelected = section;
+  }
+
+  onNewAccountAdded(data: { name: string; status: string }) {
+    this.accounts.push(data);
+    console.log(`New Account Added: Name= ${data.name} & Status= ${data.status}`);
+  }
+
+  onStatusChanged(data: { id: number; newStatus: string }) {
+    this.accounts[data.id].status = data.newStatus;
+    console.log(`Server Status Changed: To = ${data.newStatus}`);
   }
 }

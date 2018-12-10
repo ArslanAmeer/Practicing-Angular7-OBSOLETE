@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <h4>{{ account.name }}</h4>
+    <hr>
+    <p>This account is {{account.status}}</p>
+    <div class="btn-toolbar">
+      <button type="button" class="btn btn-default btn-sm" (click)="changeTo('active')">Set to
+        'Active'</button>
+      <button type="button" class="btn btn-default btn-sm" (click)="changeTo('inactive')">Set to
+        'InActive'</button>
+      <button type="button" class="btn btn-default btn-sm" (click)="changeTo('unknown')">Set to
+        'UnKnown'</button>
+    </div>
+  </div>
+</div>
