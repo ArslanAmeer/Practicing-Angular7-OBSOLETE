@@ -27,6 +27,7 @@ export class AccountComponent implements OnInit {
     // ----
     // -- commenting out above Event Emiter because we are injecting service for that specific task
     this.accountsservice.onStatusChanged(this.id, value);
+    this.accountsservice.accountUpdate.emit(value);
     // this.logging.logOnConsole(value);
   }
 }

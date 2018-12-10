@@ -15,7 +15,9 @@ export class NewAccountComponent implements OnInit {
   // @Output() newAccountData = new EventEmitter<{ name: string; status: string }>();
   // ----
   // -- commenting out above OUTPUT decorator because we are injecting service for that specific task
-  constructor(private logg: LoggingService, private accountsService: AccountsService) {}
+  constructor(private logg: LoggingService, private accountsService: AccountsService) {
+    accountsService.accountUpdate.subscribe((status: string) => alert('New Status: ' + status));
+  }
 
   ngOnInit() {}
 
