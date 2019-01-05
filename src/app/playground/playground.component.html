@@ -3,13 +3,14 @@
     Directives</button>
   <button type="button" class="btn btn-info" (click)="onSectionClick('section2')">Services
     & Dependency Injection</button>
+  <button type="button" class="btn btn-info" (click)="onSectionClick('section3')">Routing</button>
 </div>
 <hr>
 <div class="row">
   <div class="col-md-12">
     <!-- ---------- SECTION 1 --------- -->
     <div *ngIf="sectionSelected==='section1'">
-      <button class="btn btn-primary" (click)="isEven = !isEven"> Toggle between Even Odd</button>
+      <button class="btn btn-primary" (click)="isEven= !isEven"> Toggle between Even Odd</button>
       <ul class="list-group">
         <div *ngIf="isEven">
           <li class="list-group-item" *ngFor="let evenNumber of even">{{ evenNumber }}</li>
@@ -21,8 +22,10 @@
         <!-- ------------------------ -->
         <!-- Custom Directive opposite of IF condition is applied -->
         <div *appUnless="isEven">
-          <li [ngClass]="{odd: odd % 2 !== 0}" [ngStyle]="{backgroundColor: odd % 2 !==0 ? 'yellow':'transparent'}"
-            class="list-group-item" *ngFor="let oddNumber of odd">{{ oddNumber }}</li>
+          <li [ngClass]="{odd: odd % 2 !== 0}" [ngStyle]="{backgroundColor: odd
+            % 2 !==0 ? 'yellow':'transparent'}"
+            class="list-group-item" *ngFor="let oddNumber of odd">{{ oddNumber
+            }}</li>
         </div>
         <!-- ------------------------ -->
         <p appBasicHighlight>Custom Directive</p>
@@ -48,5 +51,34 @@
   <!-- <app-account *ngFor="let acc of accounts; let i = index" [account]="acc" [id]="i"
     (changedStatus)="onStatusChanged($event)"></app-account> -->
   <!-- We dont need Property Binding because we are doing the Same with SERVICE Dependedncies -->
-  <app-account *ngFor="let acc of accounts; let i = index" [account]="acc" [id]="i"></app-account>
+  <app-account *ngFor="let acc of accounts; let i= index" [account]="acc" [id]="i"></app-account>
+</div>
+<!-- ---------- SECTION 3 --------- -->
+<div *ngIf="sectionSelected==='section3'">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation"><a href="#">Servers</a></li>
+          <li role="presentation"><a href="#">Users</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <app-home></app-home>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <app-servers></app-servers>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <app-users></app-users>
+      </div>
+    </div>
+  </div>
 </div>
